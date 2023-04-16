@@ -1,0 +1,16 @@
+{
+  "name": "todo-express",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "prestart": "npm install && node_modules/.bin/sequelize db:migrate",
+    "start": "pm2 start app.js --name=todo-express"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "express": "~4.16.1",
+    "sequelize": "^6.31.0",
+    "sequelize-cli": "^6.6.0",
+    "sqlite3": "^5.1.6"
+  }
+}
