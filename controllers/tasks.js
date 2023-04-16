@@ -1,3 +1,4 @@
+const { Sequelize } = require('sequelize');
 const db = require('../models');
 const Task = db.Task;
 
@@ -29,13 +30,12 @@ exports.update = async (req, res) => {
 
 exports.toggle = async (req, res) => {
   const id = req.params.id;
-  let taskRow = await Task.findByPk(id);
   await Task.update({
-    isDone: !taskRow.isDone
+    isDone: Sequelize.literal('NOT is_done')
   }, {
-    where: { id: taskRow.id }
+    where: { id: id }
   });
-  taskRow = await Task.findByPk(id);
+  const taskRow = await Task.findByPk(id);
   res.send(taskRow);
 };
 
