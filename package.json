@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "prestart": "npm install && node_modules/.bin/sequelize db:migrate",
-    "start": "pm2 start app.js --name=todo-express"
+    "start": "forever start --id 'todo-express' app.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
