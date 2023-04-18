@@ -8,9 +8,13 @@ exports.findAll = async (req, res) => {
   res.send(result);
 };
 
-exports.create = async (req, res) => {
-  const result = await Task.create({ name: req.body.name });
-  res.status(201).send(result);
+exports.create = async (req, res, next) => {
+  try {
+    const result = await Task.create({ name: req.body.name });
+    res.status(201).send(result);
+  } catch (err) {
+    next(err);
+  }
 };
 
 exports.update = async (req, res) => {
