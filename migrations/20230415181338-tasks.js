@@ -10,7 +10,7 @@ module.exports = {
         autoIncrement: true
       },
       name: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       is_done: {
         type: Sequelize.BOOLEAN
