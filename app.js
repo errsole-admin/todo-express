@@ -5,6 +5,7 @@ const errsole = require('errsole');
 errsole.initialize({
   framework: 'express',
   token: process.env.ERRSOLE_TOKEN,
+  enableSessionLogs: false,
   exitOnException: true,
   evalExpression: true
 });
