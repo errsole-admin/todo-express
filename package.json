@@ -5,7 +5,8 @@
   "scripts": {
     "prestart": "npm install && node_modules/.bin/sequelize db:migrate",
     "start": "pm2 start app.js --name=todo-express-morgan",
-    "stop": "pm2 delete todo-express-morgan"
+    "stop": "pm2 delete todo-express-morgan",
+    "poststop": "rm -f ./database.sqlite3"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
