@@ -1,6 +1,5 @@
 const { Client } = require('@elastic/elasticsearch');
 const express = require('express');
-const fs = require('fs');
 const morgan = require('morgan');
 const path = require('path');
 const cookieParser = require('cookie-parser');
@@ -18,11 +17,11 @@ const esLogger = (format) => {
           index: 'http-logs',
           body: {
             message: message.trim(),
-            timestamp: new Date(),
-          },
+            timestamp: new Date()
+          }
         });
-      },
-    },
+      }
+    }
   });
 };
 app.use(esLogger('combined'));
@@ -39,5 +38,3 @@ const PORT = process.env.PORT || 8082;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
-
-const morgan = require('morgan');
