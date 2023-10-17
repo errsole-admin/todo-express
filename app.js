@@ -1,4 +1,5 @@
 const express = require('express');
+const fs = require('fs');
 const morgan = require('morgan');
 const path = require('path');
 const cookieParser = require('cookie-parser');
@@ -7,7 +8,8 @@ const tasksRouter = require('./routes/tasks');
 
 const app = express();
 
-app.use(morgan('combined'));
+const httpLogStream = fs.createWriteStream(path.join(__dirname, 'http.log'), { flags: 'a' });
+app.use(morgan('combined', { stream: httpLogStream }));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
