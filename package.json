@@ -4,12 +4,13 @@
   "private": true,
   "scripts": {
     "prestart": "npm install && node_modules/.bin/sequelize db:migrate",
-    "start": "pm2 start app.js --name=todo-express",
-    "stop": "pm2 delete todo-express"
+    "start": "pm2 start app.js --name=todo-express-morgan",
+    "stop": "pm2 delete todo-express-morgan"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "express": "~4.16.1",
+    "morgan": "^1.10.0",
     "sequelize": "^6.31.0",
     "sequelize-cli": "^6.6.0",
     "sqlite3": "^5.1.6"
