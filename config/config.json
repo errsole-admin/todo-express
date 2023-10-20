@@ -2,16 +2,19 @@
   "development": {
     "dialect": "sqlite",
     "storage": "./database.sqlite3",
-    "seederStorage": "sequelize"
+    "seederStorage": "sequelize",
+    "logging": false
   },
   "test": {
     "dialect": "sqlite",
     "storage": ":memory",
-    "seederStorage": "sequelize"
+    "seederStorage": "sequelize",
+    "logging": false
   },
   "production": {
     "dialect": "sqlite",
     "storage": "./database.sqlite3",
-    "seederStorage": "sequelize"
+    "seederStorage": "sequelize",
+    "logging": false
   }
 }
