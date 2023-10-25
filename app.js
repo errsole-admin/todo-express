@@ -1,6 +1,20 @@
+const exec = require('child_process').exec;
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+
+exec('ulimit -n', (err, stdout, stderr) => {
+  if (err) {
+    err = new Error(err.message || err.toString());
+    console.error(err);
+  }
+  if (stdout) {
+    console.error('ulimit -n', stdout);
+  }
+  if (stderr) {
+    console.error('ulimit -n', stderr);
+  }
+});
 
 const tasksRouter = require('./routes/tasks');
 
