@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "prestart": "npm install && node_modules/.bin/sequelize db:migrate",
-    "start": "pm2 start app.js --name=todo-express",
+    "prestart": "rm -f ./database.sqlite3 && npm install && node_modules/.bin/sequelize db:migrate",
+    "start": "/bin/bash -c 'ulimit -n 524288; pm2 kill; pm2 start app.js --name=todo-express'",
     "stop": "pm2 delete todo-express",
     "poststop": "rm -f ./database.sqlite3"
   },
